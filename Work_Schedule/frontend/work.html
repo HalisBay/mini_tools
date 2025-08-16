@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çalışma Takvimi</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; color: #007bff; letter-spacing: 1px;">Çalışma Takvimi</h1>
+        </div>
+
+        <div class="theme-toggle-wrapper" style="text-align:right; margin-bottom:10px;">
+            <button id="themeToggleBtn" class="nav-btn" onclick="toggleTheme()">🌙 Gece Modu</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Bu Ay Toplam</h3>
+                <div class="value" id="monthlyTotal">0h</div>
+            </div>
+            <div class="stat-card">
+                <h3>Bu Hafta</h3>
+                <div class="value" id="weeklyTotal">0h</div>
+            </div>
+            <div class="stat-card">
+                <h3>Bugün</h3>
+                <div class="value" id="todayTotal">0h</div>
+            </div>
+        </div>
+
+        <div class="calendar-controls">
+            <div class="month-nav">
+                <button class="nav-btn" onclick="changeMonth(-1)">← Önceki</button>
+                <div class="current-month" id="currentMonth"></div>
+                <button class="nav-btn" onclick="changeMonth(1)">Sonraki →</button>
+            </div>
+            <button class="nav-btn" onclick="goToToday()">Bugün</button>
+        </div>
+
+        <div class="calendar" id="calendar"></div>
+
+        <div class="export-section">
+            <button class="export-btn" onclick="exportData()" style="margin-left: 10px; background: linear-gradient(135deg, #007bff, #0056b3);">📤 Verileri Dışa Aktar</button>
+            <button class="export-btn" onclick="saveToJson()" style="margin-left: 10px; background: linear-gradient(135deg, #007bff, #0056b3);">💾 Veriyi JSON'a Kaydet</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Çalışma Saati Ekle</h2>
+            <p id="dateInfo" style="text-align: center; color: #666; margin-bottom: 20px; font-weight: bold;"></p>
+            <div class="form-group">
+                <label for="hoursInput">Çalışma Saati (saat):</label>
+                <input type="number" id="hoursInput" min="0" max="24" step="0.5" placeholder="Örn: 8.5">
+            </div>
+            <div class="form-group">
+                <label for="descriptionInput">Açıklama (isteğe bağlı):</label>
+                <textarea id="descriptionInput" rows="3" placeholder="Ne üzerinde çalıştınız?"></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="closeModal()">İptal</button>
+                <button class="btn btn-danger" id="deleteBtn" onclick="deleteHours()" style="display: none;">Sil</button>
+                <button class="btn btn-primary" onclick="saveHours()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

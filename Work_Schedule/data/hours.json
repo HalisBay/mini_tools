@@ -1,0 +1,29 @@
+{
+  "monthlyTotals": {},
+  "settings": {
+    "dailyTarget": 8,
+    "weeklyTarget": 40
+  },
+  "workHours": {
+    "2025-08-03": {
+      "description": "",
+      "hours": 3
+    },
+    "2025-08-07": {
+      "description": "",
+      "hours": 5
+    },
+    "2025-08-12": {
+      "description": "",
+      "hours": 2
+    },
+    "2025-08-16": {
+      "description": "",
+      "hours": 2
+    },
+    "2025-08-04": {
+      "hours": 2,
+      "description": ""
+    }
+  }
+}
