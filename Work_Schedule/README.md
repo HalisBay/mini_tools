@@ -10,27 +10,28 @@ Bu uygulama ile çalışma saatlerinizi takvim üzerinden kaydedebilir, düzenle
 
 ### 2. Başlatma ve Durdurma
 
-1. Proje klasöründe terminal açın.
-2. `start.sh` dosyasına çalıştırma izni verin:
-   ```bash
-   chmod +x start.sh
-   ```
-3. Sunucuları başlatmak için:
-   ```bash
-   ./start.sh start
-   ```
-4. Sunucuları durdurmak için:
-   ```bash
-   ./start.sh stop
-   ```
+## Platforma Göre Başlatma ve Durdurma
 
-Script şunları otomatik yapar:
-- Python, pip ve venv kontrolü (Linux'ta eksikse otomatik kurulum, Mac/Windows'ta rehberlik)
-- Sanal ortam oluşturur ve etkinleştirir
-- Gerekli Python paketlerini yükler (Flask, flask-cors)
-- Backend (API) ve frontend (web arayüzü) sunucularını başlatır
-- Web arayüzünü varsayılan tarayıcıda açar
-- Arka planda çalışan sunucuların PID dosyalarını `.logs/pid/` klasörüne, log dosyalarını `.logs/logs/` klasörüne kaydeder
+Her işletim sistemi için ayrı başlatma dosyası kullanmalısınız:
+
+- **Linux (Ubuntu vb.):**
+   - `linux/start.sh start` ile başlatılır
+   - `linux/start.sh stop` ile durdurulur
+   - Gerekirse çalıştırma izni verin: `chmod +x linux/start.sh`
+
+- **MacOS:**
+   - `macos/start.sh start` ile başlatılır
+   - `macos/start.sh stop` ile durdurulur
+   - Gerekirse çalıştırma izni verin: `chmod +x macos/start.sh`
+
+- **Windows:**
+   - Komut istemcisinde `windows` klasörüne girin
+   - `start.bat start` ile başlatılır
+   - `start.bat stop` ile durdurulur
+
+Her dosya ilgili platforma özel komutlarla çalışır ve ana işlevlerin tamamını destekler.
+
+**Not:** Ana `start.sh` dosyası kaldırılmıştır. Lütfen yukarıdaki platforma özel dosyaları kullanın.
 
 ### 3. Kullanım
 - Web arayüzünde gün ekleyip/silebilirsiniz.
